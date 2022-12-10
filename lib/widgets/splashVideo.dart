@@ -28,7 +28,7 @@ class _SplashPageState extends State<SplashPage> {
     controller = VideoPlayerController.asset("assets/videos/star.mp4");
     controller.initialize().then((val) {
       controller.setLooping(true);
-      Timer(Duration(milliseconds: 300), () {
+      Timer(Duration(milliseconds: 1000), () {
         setState(() {
           controller.play();
           _visible = true;
