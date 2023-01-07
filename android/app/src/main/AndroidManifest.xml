@@ -9,7 +9,7 @@
    <application
         android:requestLegacyExternalStorage="true"
         android:usesCleartextTraffic="true"
-        android:label="Starsgrp"
+        android:label="Theowletonline"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
@@ -39,5 +39,22 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
-    </application>
+       <!-- TODO replace YOUR_APP_ID with actual value -->
+       <meta-data
+           android:name="com.startapp.sdk.APPLICATION_ID"
+           android:value="200527135" />
+       <meta-data
+           android:name="com.startapp.sdk.RETURN_ADS_ENABLED"
+           android:value="false" />
+       <!-- TODO Splash Ad controlled by the android:value below -->
+       <provider
+           android:authorities="com.startapp.flutter.sdk.${200527135}"
+           android:name="com.startapp.flutter.sdk.StartAppFlutterHelper"
+           android:exported="false">
+           <meta-data
+               android:name="com.startapp.sdk.SPLASH_ADS_ENABLED"
+               android:value="true" />
+       </provider>
+
+   </application>
 </manifest>

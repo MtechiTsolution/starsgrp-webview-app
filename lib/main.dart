@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:starsgrp/widgets/splashVideo.dart';
+import 'package:startapp_sdk/startapp.dart';
+
+import 'SplashScreen.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       // title: 'STARSGRP',
       debugShowCheckedModeBanner: false,
-      home: SplashPage(),
+      home:SplashScreenpg(),
     );
   }
 }
@@ -26,12 +28,85 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen>
     with TickerProviderStateMixin {
+  var startAppSdk = StartAppSdk();
+  var _sdkVersion = "";
+
+  StartAppBannerAd? bannerAd;
+  StartAppBannerAd? mrecAd;
+  StartAppInterstitialAd? interstitialAd;
+
+  @override
+  void initState() {
+    super.initState();
+
+    // TODO make sure to comment out this line before release
+    startAppSdk.setTestAdsEnabled(true);
+    loadInterstitialAd();
+    // TODO your app doesn't need to call this method unless for debug purposes
+    startAppSdk.getSdkVersion().then((value) {
+      setState(() => _sdkVersion = value);
+    });
+    startAppSdk.setTestAdsEnabled(true);
+
+    // TODO use one of the following types: BANNER, MREC, COVER
+    startAppSdk.loadBannerAd(StartAppBannerType.BANNER).then((bannerAd) {
+      setState(() {
+        this.bannerAd = bannerAd;
+      });
+    }).onError < StartAppException > ((ex, stackTrace) {
+      debugPrint("Error loading Banner ad: ${ex.message}");
+    }).onError((error, stackTrace) {
+      debugPrint("Error loading Banner ad: $error");
+    });
+  }
+
+  void loadInterstitialAd() {
+    startAppSdk.loadInterstitialAd().then((interstitialAd) {
+      setState(() {
+        this.interstitialAd = interstitialAd;
+      });
+    }).onError((ex, stackTrace) {
+      var message;
+      debugPrint("Error");
+    }).onError((error, stackTrace) {
+      debugPrint("Error loading Interstitial ad: $error");
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    var buttonStyle = ButtonStyle(minimumSize: MaterialStateProperty.all(Size(224, 36)));
     return Scaffold(
-        body: Container(
-            // child: SplashPage()
-            ));
+        body: Column(
+          children: [
+            bannerAd != null ? StartAppBanner(bannerAd!) : Container(),
+
+             ElevatedButton(
+              onPressed: () {
+                if (interstitialAd != null) {
+                  interstitialAd!.show().then((shown) {
+                    if (shown) {
+                      setState(() {
+                        // NOTE interstitial ad can be shown only once
+                        this.interstitialAd = null;
+
+                        // NOTE load again
+                        loadInterstitialAd();
+                      });
+                    }
+
+                    return null;
+                  }).onError((error, stackTrace) {
+                    debugPrint("Error showing Interstitial ad: $error");
+                  });
+                }
+              },
+              child: Text('Show Interstitial'),
+            ),
+
+          ],
+        )
+    );
   }
 
   Future<Object> _onBackPressed() async {
@@ -50,6 +125,9 @@ class _SplashScreenState extends State<SplashScreen>
             ),
             ElevatedButton(
               child: Text('Yes'),
+              style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.redAccent, backgroundColor: Colors.red, // foreground
+              ),
               onPressed: () {
                 Navigator.of(context).pop(true);
               },
@@ -57,6 +135,9 @@ class _SplashScreenState extends State<SplashScreen>
           ],
         );
       },
+
     );
+
   }
+
 }

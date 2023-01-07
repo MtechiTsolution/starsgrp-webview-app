@@ -28,7 +28,7 @@ class _WebViewContainerState extends State<Privacy_policy> {
   @override
   Widget build(BuildContext context) {
     return AdvancedDrawer(
-      backdropColor: Colors.blue[900],
+      backdropColor: Colors.red[500],
       controller: _advancedDrawerController,
       animationCurve: Curves.easeInOut,
       animationDuration: const Duration(milliseconds: 300),
@@ -48,19 +48,19 @@ class _WebViewContainerState extends State<Privacy_policy> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Container(
-                  width: 128.0,
-                  height: 128.0,
+                  width: 120.0,
+                  height: 120.0,
                   margin: const EdgeInsets.only(
                     top: 24.0,
                     bottom: 64.0,
                   ),
                   clipBehavior: Clip.antiAlias,
                   decoration: const BoxDecoration(
-                    color: Colors.black26,
+                    color: Colors.white,
                     shape: BoxShape.circle,
                   ),
                   child: Image.asset(
-                    'assets/icon.jpg',
+                    'assets/iconn.png',
                   ),
                 ),
                 ListTile(
@@ -79,13 +79,13 @@ class _WebViewContainerState extends State<Privacy_policy> {
                   onTap: () {
                     _advancedDrawerController.hideDrawer();
                   },
-                  leading: Icon(Icons.policy),
-                  title: Text('Privacy Policy'),
+                  leading: Icon(Icons.home_repair_service),
+                  title: Text('Services'),
                 ),
                 ListTile(
                   onTap: ()async{
-                    String email = Uri.encodeComponent("info@starsgrp.com");
-                    String subject = Uri.encodeComponent("Team STARSGRP");
+                    String email = Uri.encodeComponent("support@theowlette.com");
+                    String subject = Uri.encodeComponent("Team Theowletonline");
                     String body = Uri.encodeComponent("Hi! write your feedback here.....");
                     print(subject); //output: Hello%20Flutter
                     Uri mail = Uri.parse("mailto:$email?subject=$subject&body=$body");
@@ -101,7 +101,7 @@ class _WebViewContainerState extends State<Privacy_policy> {
                 ),
                 ListTile(
                   onTap: () {
-                    Share.share('Visit Starsgrp at https://starsgrp.com/');
+                    Share.share('Visit Teowletonline at https://the-owlet.com/');
                   },
                   leading: Icon(Icons.share),
                   title: Text('Share'),
@@ -126,8 +126,8 @@ class _WebViewContainerState extends State<Privacy_policy> {
       ),
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.blue[900],
-          title: const Text('Privacy Policy',style: TextStyle(fontWeight: FontWeight.bold),),
+          backgroundColor: Colors.red[500],
+          title: const Text('Services',style: TextStyle(fontWeight: FontWeight.bold),),
           centerTitle: true,
           leading: IconButton(
             onPressed: _handleMenuButtonPressed,
@@ -170,7 +170,7 @@ class _WebViewContainerState extends State<Privacy_policy> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15.0),
                     ),
-                    color: Colors.blue[900],
+                    color: Colors.red[500],
                     elevation: 10,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,

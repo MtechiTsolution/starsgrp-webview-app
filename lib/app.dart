@@ -9,7 +9,8 @@ class App extends StatelessWidget {
 
       debugShowCheckedModeBanner: false,
 
-      home: WebViewContainer('https://starsgrp.com/', 'STARSGRP',"https://starsgrp.com/page/privacy-policy"),
+      home: WebViewContainer('https://the-owlet.com/',
+          'Theowletonline',"https://the-owlet.com/services"),
     );
   }
 }

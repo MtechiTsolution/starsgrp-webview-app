@@ -371,6 +371,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.10.0"
+  startapp_sdk:
+    dependency: "direct main"
+    description:
+      name: startapp_sdk
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.4.1"
   stream_channel:
     dependency: transitive
     description:

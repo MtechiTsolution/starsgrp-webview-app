@@ -7,7 +7,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>Starsgrp</string>
+	<string>Theowltonline</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -15,13 +15,20 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>starsgrp</string>
+	<string>Theowltonline</string>
 	<key>CFBundlePackageType</key>
 	<key>NSAppTransportSecurity</key>
     <dict>
       <key>NSAllowsArbitraryLoads</key>
       <true/>
     </dict>
+    <!-- TODO replace YOUR_APP_ID with actual value -->
+    <key>com.startapp.sdk.APPLICATION_ID</key>
+    <string>200527135</string>>
+    <key>com.startapp.sdk.SPLASH_ADS_ENABLED</key>
+    <true/>
+    <key>com.startapp.sdk.RETURN_ADS_ENABLED</key>
+    <false/>
     <key>io.flutter.embedded_views_preview</key>
     <true/>
     <key>NSAppTransportSecurity</key>
