@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "599922253393",
+    "project_id": "stargrp-4c167",
+    "storage_bucket": "stargrp-4c167.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:599922253393:android:1d3e6a68f335e4ffa66270",
+        "android_client_info": {
+          "package_name": "com.example.starsgrp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "599922253393-vvoo524p8i71u1g3899jhnpfjhrbsh8e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCii8Nc8gzDFE5oSw29HIF4RBlBk1cjw-U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "599922253393-vvoo524p8i71u1g3899jhnpfjhrbsh8e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
